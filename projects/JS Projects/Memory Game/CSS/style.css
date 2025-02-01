@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.board {
+    width: 500px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 2.5rem;
+}
+
+.card-front {
+    background-color: white;
+    color: #000;
+    transform: rotateY(180deg);
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    transform: rotateY(0deg);
+}
+
+.item.boxOpen .card-front {
+    transform: rotateY(0deg);
+}
+
+.item.boxOpen .card-back {
+    transform: rotateY(180deg);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003d8f);
+}

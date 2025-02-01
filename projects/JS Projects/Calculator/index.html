@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Input Field -->
+        <div class="inputField">
+            <input type="text" id="inputField" placeholder="Calculator By Ofek©" readonly>
+        </div>
+
+        <!-- Buttons Container -->
+        <div class="buttons">
+            <!-- Top Row -->
+            <div class="row">
+                <button class="operator" id="%">%</button>
+                <button class="operator" id="squareRoot">√</button>
+                <button class="operator" id="ce">CE</button>
+                <button class="operator" id="clear">C</button>
+            </div>
+            <!-- Numbers and Operators -->
+            <div class="row">
+                <button class="number-btn" id="7">7</button>
+                <button class="number-btn" id="8">8</button>
+                <button class="number-btn" id="9">9</button>
+                <button class="operator" id="/">/</button>
+            </div>
+            <div class="row">
+                <button class="number-btn" id="4">4</button>
+                <button class="number-btn" id="5">5</button>
+                <button class="number-btn" id="6">6</button>
+                <button class="operator" id="X">×</button>
+            </div>
+            <div class="row">
+                <button class="number-btn" id="1">1</button>
+                <button class="number-btn" id="2">2</button>
+                <button class="number-btn" id="3">3</button>
+                <button class="operator" id="-">−</button>
+            </div>
+            <div class="row">
+                <button class="number-btn" id="0">0</button>
+                <button class="operator" id=".">.</button>
+                <button class="operator" id="+">+</button>
+                <button id="=">=</button>
+            </div>
+        </div>
+    </div>
+
+ <!-- History Section -->
+ <div class="history">
+    <h2>History</h2>
+    <ul id="historyList"></ul>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

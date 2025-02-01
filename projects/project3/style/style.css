@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+  
+}
+
+.form-container h1 {
+    color: #FDBD03;
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.form-container p {
+    color: #020253;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.btn-custom {
+    background-color: #FDBD03;
+    color: #050303;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-control {
+    background: #E5EEFF;
+    border-bottom: #FDBD03 2px solid;
+}
+
+label {
+    display: flex;
+    text-align: right;
+    font-size: 16px;
+}
+
+.head-img{
+    display: inline-flex;
+    flex-direction: row;
+    background: #FDBD03;
+    border-radius: 50px;
+    margin-top: 50px;
+    height: 50px;
+    width: 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-image: url(../images/wahtsapp.svg);
+}
+
+.icon-i>img {
+    display: inline-flex;
+    flex-direction: row;
+    background: #FDBD03;
+    border-radius: 50px;
+    margin-top: 50px;
+    height: 50px;
+    width: 50px;
+    background-position: center center;
+
+}
+.icon-i :nth-child(4){
+    background-image: url(../images/facebook.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+.icon-i :nth-child(3){
+    background-image: url(../images/phone.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 27px;
+
+}
+.icon-i :nth-child(2){
+    background-image: url(../images/location.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+}
+.icon-i :nth-child(1){
+    background-image: url(../images/linkdin.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+
+.right-btn{
+    display: flex;
+    align-items: end;
+}
+
+.upperLineContainer{
+   position: relative;
+    width: 100%;
+    top: auto;
+
+    
+}
+.upperLine{
+    background-color: #FDBD03;
+    height: 18px;
+    width: 25%;
+}
+
+.bottomLine{
+    background-color: #FDBD03;
+    height: 18px;
+    width: 50%;
+}
+
+.bottomLineContainer{
+    display: flex;
+    justify-content: end;
+    position: relative;
+    width: 100%;
+    margin: 25px auto 0 0;
+    bottom: auto;
+}
+
+
