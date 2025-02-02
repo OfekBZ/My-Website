@@ -257,12 +257,11 @@ main{
   margin-top: 10px;
  }
 
- #firstBtns{
+ .adjBtns{
   margin-top: 32px;
  }
- #secondBtns{
-  margin-top: 32px;
- }
+ 
+ 
 
  #card-btn{
   display: inline-block;

@@ -36,10 +36,7 @@
                 </tr>
             </thead>
             <tbody id="products">
-                <!-- <tr>
-                    <td></td>
-                    <td></td>
-                </tr> -->
+             
             </tbody>
         </table>
         <h3>Total Price: <span id="totalPrice">0</span></h3>
@@ -50,8 +47,7 @@
         function addItem(){
             let name = document.getElementById("name").value,
             price = +document.getElementById("price").value;
-            document.getElementById("products").innerHTML += `<tr><td>${name}</td><td>${price}</td></tr>`; // += "<tr><td>" + name + "</td><td>" + price + "</td></tr>";
-            totalPrice += price;
+            document.getElementById("products").innerHTML += `<tr><td>${name}</td><td>${price}₪</td></tr>`; 
             document.getElementById("totalPrice").innerHTML = totalPrice;
             document.getElementById("name").value = "";
             document.getElementById("price").value = "";
