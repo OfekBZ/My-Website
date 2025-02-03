@@ -10,16 +10,18 @@ const getCountries = async () => {
 const countriesFull = await getCountries();
 let countries = [...countriesFull];
 
+// Function to reset the countries array
 const reset = () => {
     countries = [...countriesFull];
-}
+};
 
+// Function to filter countries based on search word
 const search = (word) => {
     countries = countriesFull.filter((country) => {
         const name = country.name.common.toLowerCase();
-        const formatedWord = word.toLowerCase();
-        return name.includes(formatedWord);
-    })
-}
+        const formattedWord = word.toLowerCase();
+        return name.includes(formattedWord);
+    });
+};
 
 export { countries, reset, search };

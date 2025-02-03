@@ -1,92 +1,97 @@
-import { countries, reset, search } from "./countriesService.js";
+import { countries } from "./countriesService.js";
+
 const cardsContainer = document.getElementById('cards');
 
-document.getElementById('search-input').addEventListener('input', (event) => {
-    console.log(event.target.value);
-    reset();
-    cardsContainer.innerHTML = '';
+// Helper function to save liked countries to localStorage
+const saveLikedCountries = (likedCountries) => {
+    localStorage.setItem('likedCountries', JSON.stringify(likedCountries));
+};
 
-    if (!event.target.value || event.target.value === '') {
-        createCards();
-    } else {
-        search(event.target.value);
-        createCards();
-    }
-
-});
+// Helper function to load liked countries from localStorage
+const getLikedCountries = () => {
+    return JSON.parse(localStorage.getItem('likedCountries')) || [];
+};
 
 const generateCard = (country) => {
-    // create a card & style it
-    const card = document.createElement('div');
-    card.className = "card m-2 col-sm-12 col-md-3"
+    const likedCountries = getLikedCountries();
 
-    // create an image, style it and set the source
+    // Create a card
+    const card = document.createElement('div');
+    card.className = "card m-2 col-sm-12 col-md-3";
+
+    // Create an image
     const cardImg = document.createElement('img');
     cardImg.src = country.flags.png;
     cardImg.className = "card-img-top img mt-2 border rounded shadow";
 
-    // create a card body, style it
+    // Create a card body
     const cardBody = document.createElement('div');
     cardBody.className = "card-body";
 
-    // create a card title, style it and set the text
+    // Create a card title
     const cardTitle = document.createElement('h5');
     cardTitle.className = "card-title";
     cardTitle.innerText = country.name.common;
 
-    // create a paragraph for population, style it and set the text
+    // Create population text
     const population = document.createElement('p');
     population.className = "card-text";
     population.innerText = `Population: ${country.population}`;
 
-    // create a paragraph for region, style it and set the text
+    // Create region text
     const region = document.createElement('p');
     region.className = "card-text";
     region.innerText = `Region: ${country.region}`;
 
-    // create a card footer, style it
+    // Create a card footer with a heart icon
     const cardFooter = document.createElement('div');
     cardFooter.className = "card-footer d-flex justify-content-center mb-2";
 
-    // create a heart icon, style it
-    let heartIcon = document.createElement('i');
-    heartIcon.className = "fa fa-heart text-dark";
+    const heartIcon = document.createElement('i');
+    heartIcon.className = "fa fa-heart";
 
+    // Check if the country is already liked
+    if (likedCountries.includes(country.name.common)) {
+        heartIcon.classList.add('text-danger');
+    } else {
+        heartIcon.classList.add('text-dark');
+    }
+
+    // Handle click event to toggle like state
     heartIcon.addEventListener('click', () => {
-        heartIcon.classList.toggle('text-danger');
-        heartIcon.classList.toggle('text-dark');
+        let updatedLikedCountries = getLikedCountries();
 
-        // if(heartIcon.classList.contains('text-dark')){
-        //     heartIcon.classList.remove('text-dark');
-        //     heartIcon.classList.add('text-danger');
-        // } else {
-        //     heartIcon.classList.remove('text-danger');
-        //     heartIcon.classList.add('text-dark');
-        // }
+        if (heartIcon.classList.contains('text-dark')) {
+            heartIcon.classList.remove('text-dark');
+            heartIcon.classList.add('text-danger');
+            updatedLikedCountries.push(country.name.common);
+        } else {
+            heartIcon.classList.remove('text-danger');
+            heartIcon.classList.add('text-dark');
+            updatedLikedCountries = updatedLikedCountries.filter(name => name !== country.name.common);
+        }
+
+        // Save the updated liked countries to localStorage
+        saveLikedCountries(updatedLikedCountries);
     });
 
-    // add the heart icon to the card footer
+    // Append elements to the card
     cardFooter.appendChild(heartIcon);
-
-    // add the card title, population and region to the card body
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(population);
     cardBody.appendChild(region);
-
-    // add the image, card body and card footer to the card
     card.appendChild(cardImg);
     card.appendChild(cardBody);
     card.appendChild(cardFooter);
 
-    // get the cards container and append the card
+    // Add the card to the cards container
     cardsContainer.appendChild(card);
-}
+};
 
-// create cards for all countries in the array
 const createCards = () => {
     for (const country of countries) {
         generateCard(country);
     }
-}
+};
 
 export { createCards };

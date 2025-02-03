@@ -95,7 +95,7 @@ countryDropdown.addEventListener('change', ()=>{
 const helloTime = ()=>{
 const old = new Date()
 const now = old.getHours() // Get the current hour (0–23)
-console.log(`the current time is in hours is ${now}`);
+console.log(`the current time in hours is ${now}`);
 
 const hello = document.getElementById('hello') // get the 'hello' element
 const card = document.getElementById('card')
