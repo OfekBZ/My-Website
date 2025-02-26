@@ -44,10 +44,16 @@ function generateQuestion(difficulty) {
 }
 
 function checkAnswer() {
-    const userAnswer = parseFloat(document.getElementById("answerInput").value);
+    const answerInput = document.getElementById("answerInput");
+    const userAnswer = answerInput.value.trim();
     const currentQuestion = questions[currentQuestionIndex];
 
-    if (userAnswer === currentQuestion.answer) {
+    if (userAnswer === "") {
+        alert("Please type an answer");
+        return;
+    }
+
+    if (parseFloat(userAnswer) === currentQuestion.answer) {
         alert("Well done!");
         score++;
         localStorage.setItem("mathGameScore", score);
@@ -61,7 +67,7 @@ function checkAnswer() {
         showFinalScore();
     } else {
         document.getElementById("question").innerText = questions[currentQuestionIndex].question;
-        document.getElementById("answerInput").value = "";
+        answerInput.value = "";
     }
 }
 
@@ -88,6 +94,7 @@ function startGame(selectedDifficulty) {
     document.getElementById("goBackButton").style.display = "block";
     document.getElementById("answerInput").style.display = "inline-block";
     document.getElementById("submitButton").style.display = "inline-block";
+    document.getElementById("answerInput").value = "";
 }
 
 function showDifficulty() {

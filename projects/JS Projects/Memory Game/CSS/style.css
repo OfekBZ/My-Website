@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 body {
@@ -5,21 +6,23 @@ body {
 }
 
 .board {
-    width: 500px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .item {
-    width: 100px;
-    height: 100px;
+    width: calc(25% - 10px);
+    height: calc(25vw - 10px);
+    max-width: 100px;
+    max-height: 100px;
     perspective: 1000px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
@@ -34,14 +37,13 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .card-front {
     background-color: white;
     color: #000;
     transform: rotateY(180deg);
-    font-size: 2rem;
     padding: 10px;
 }
 
@@ -67,4 +69,16 @@ body {
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #0056b3, #003d8f);
+}
+
+@media (max-width: 600px) {
+    .item {
+        width: calc(33.33% - 10px);
+        height: calc(33.33vw - 10px);
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 1.5rem;
+    }
 }
